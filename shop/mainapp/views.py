@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Clothes
 from .services.utils import get_page_obj_for_page_number
 
+
 CATEGORY_TITLES = {'animals': 'Животные',
                    'games': 'Игры',
                    'russia': 'Россия'}
