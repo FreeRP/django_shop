@@ -8,13 +8,11 @@ CATEGORY_TITLES = {'animals': 'Животные',
                    'russia': 'Россия'}
 
 def render_mainpage(request):
-    context = {
-        'clothes': list(Clothes.objects.using('animals').all()) + \
-                   list(Clothes.objects.using('games').all()) + \
-                   list(Clothes.objects.using('russia').all()),
-        'categories': CATEGORY_TITLES
-    }
-    return render(request, 'mainapp/show_clothes.html', context)
+    return render(request, 'mainapp/show_clothes.html',
+                  context = {'clothes': list(Clothes.objects.using('animals').all()) + \
+                                        list(Clothes.objects.using('games').all()) + \
+                                        list(Clothes.objects.using('russia').all()),
+                             'categories': CATEGORY_TITLES})
 
 def render_chosen_category(request, **kwargs):
     return render(request, 'mainapp/show_clothes.html',
