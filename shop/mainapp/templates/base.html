@@ -23,9 +23,44 @@
     }
 </style>
 <body>
-    {% block content %}
 
-    {% endblock %}
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Django 3 | E-commerce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3 mt-5">
+        <div class="list-group">
+          {% for link, name in categories.items %}
+            <a href="/category/{{ link }}" class="list-group-item">{{ name }}</a>
+          {% endfor %}
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+      {% block content %}
+
+      {% endblock content %}
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
