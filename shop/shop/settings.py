@@ -77,8 +77,28 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'animals': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_animals_db',
+        'NAME': 'django_animals',
+        'USER': 'postgres',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '',
+    },
+    'russia': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_russia',
+        'USER': 'postgres',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '',
+    },
+    'games': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_games',
         'USER': 'postgres',
         'PASSWORD': '1',
         'HOST': 'localhost',
