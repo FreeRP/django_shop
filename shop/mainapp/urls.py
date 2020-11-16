@@ -1,8 +1,9 @@
 from django.urls import path
 
-from .views import *
+from .views import render_mainpage, render_chosen_category
 
 
 urlpatterns = [
-    path('', render_mainpage)
+    path('', render_mainpage, name='home'),
+    path('category/<str:name>/', render_chosen_category, name='chosen_category')
 ]
