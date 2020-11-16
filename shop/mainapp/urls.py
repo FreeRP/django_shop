@@ -5,5 +5,5 @@ from .views import render_mainpage, render_chosen_category
 
 urlpatterns = [
     path('', render_mainpage, name='home'),
-    path('category/<str:name>/', render_chosen_category, name='chosen_category')
+    path('catalog/<str:category>/', render_chosen_category, name='chosen_category')
 ]
