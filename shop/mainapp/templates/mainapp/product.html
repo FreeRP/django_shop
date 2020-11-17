@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style='text-align: center;'>
+        <img src="{% static 'mainapp'%}/{{ product_data.img_name }}" width="700" height="700" alt='{{ product_data.name }}'>
+        <h4>{{ product_data.name }}</h4>
+        <h4>{{ product_data.price }} руб.</h4>
+</div>
+{% endblock %}

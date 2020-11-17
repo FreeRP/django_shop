@@ -4,10 +4,10 @@
 {% block content %}
 
 <div class="row">
-{% for clothes in page_obj %}
+{% for product in page_obj %}
     <div>
-        <a href="{% url 'clothes_page' category clothes.id %}">
-            <img src="{% static 'mainapp' %}/{{ clothes.img_name }}" width="250" height="250" alt="{{ item.name }}"><br>
+        <a href="{% url 'product_page' category product.id %}">
+            <img src="{% static 'mainapp' %}/{{ product.img_name }}" width="250" height="250" alt="{{ item.name }}"><br>
         </a>
     </div>
 {% endfor %}
