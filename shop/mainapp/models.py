@@ -1,11 +1,11 @@
 from django.db import models
 
+
 class Category(models.Model):
 
     slug = models.CharField(max_length=100, verbose_name='slug')
     name = models.CharField(max_length=100, verbose_name='название категории')
     image_name = models.CharField(max_length=100, verbose_name='название изображения')
-    clothes = models.ForeignKey('Clothes', blank=False, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
