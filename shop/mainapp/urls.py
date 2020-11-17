@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import render_mainpage, render_chosen_category, render_clothes_page
+from .views import mainpage, chosen_category, clothes_page
 
 
 urlpatterns = [

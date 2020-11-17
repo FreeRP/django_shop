@@ -11,15 +11,9 @@ CATEGORY_TITLES = {'animals': 'Животные',
 ITEMS_PER_PAGE = 9
 
 def mainpage(request):
-    items = list(Clothes.objects.using('animals').all()) + \
-            list(Clothes.objects.using('games').all()) + \
-            list(Clothes.objects.using('russia').all())
-    page_obj = get_page_obj_for_page_number(request.GET.get('page', 1),
-                                            ITEMS_PER_PAGE,
-                                            items)
-    return render(request, 'mainapp/show_clothes.html',
-                  {'page_obj': page_obj,
-                   'categories': CATEGORY_TITLES})
+    Clothes.objects.using(kwargs['category']).get(id=1)
+    return render(request, 'mainapp/main.html',
+                  {'categories': CATEGORY_TITLES})
 
 def chosen_category(request, **kwargs):
     page_obj = get_page_obj_for_page_number(request.GET.get('page', 1),
@@ -32,7 +26,7 @@ def chosen_category(request, **kwargs):
                            'categories': CATEGORY_TITLES})
 
 def clothes_page(request, **kwargs):
-    print(kwargs['category'], kwargs['clothes_id'])
     clothes_data = Clothes.objects.using(kwargs['category']).get(id=kwargs['clothes_id'])
     return render(request, 'mainapp/clothes_page.html',
-                  context={'clothes_data':clothes_data})
+                  context={'clothes_data': clothes_data,
+                           'categories': CATEGORY_TITLES})
