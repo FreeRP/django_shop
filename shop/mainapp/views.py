@@ -1,19 +1,20 @@
 from django.shortcuts import render
 
-from .models import Clothes
+from .models import Clothes, Category
 from .services.utils import get_page_obj_for_page_number
 
 
 CATEGORY_TITLES = {'animals': 'Животные',
                    'games': 'Игры',
                    'russia': 'Россия'}
-
 ITEMS_PER_PAGE = 9
 
 def mainpage(request):
-    Clothes.objects.using(kwargs['category']).get(id=1)
+    category_objects = [Category(slug=slug, name=name,
+                                 image_name=Clothes.objects.using(slug).get(id=1).img_name)
+                        for slug, name in CATEGORY_TITLES.items()]
     return render(request, 'mainapp/main.html',
-                  {'categories': CATEGORY_TITLES})
+                  {'categories': category_objects})
 
 def chosen_category(request, **kwargs):
     page_obj = get_page_obj_for_page_number(request.GET.get('page', 1),
