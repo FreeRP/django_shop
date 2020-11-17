@@ -2,16 +2,14 @@
 {% load static %}
 
 {% block content %}
-<nav aria-label="breadcrumb" class='mt-3'>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
-      <li class="breadcrumb-item active">{{ chosen_category }}</li>
-    </ol>
-</nav>
 
-<div class="container">
-{% for item in page_obj %}
-    <img src="{% static 'mainapp' %}/{{ item.img_name }}" width="250" height="250" alt="{{ item.name }}">
+<div class="row">
+{% for clothes in page_obj %}
+    <div>
+        <a href="{% url 'clothes_page' category clothes.id %}">
+            <img src="{% static 'mainapp' %}/{{ clothes.img_name }}" width="250" height="250" alt="{{ item.name }}"><br>
+        </a>
+    </div>
 {% endfor %}
 </div>
 
