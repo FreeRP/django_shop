@@ -33,9 +33,14 @@
       </button>
     </div>
   </nav>
-
   <!-- Page Content -->
   <div class="container">
+    <nav aria-label="breadcrumb" class='mt-3'>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+        <li class="breadcrumb-item active">{{ chosen_category }}</li>
+      </ol>
+    </nav>
 
     <div class="row">
 
@@ -45,8 +50,8 @@
             <a href="/catalog/{{ link }}" class="list-group-item">{{ name }}</a>
           {% endfor %}
         </div>
-
       </div>
+
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
